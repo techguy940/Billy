@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Billy: Your Business Helper</title>
+	<link rel="stylesheet" type="text/css" href="./styles/homepage.css">
+	<link rel="stylesheet" type="text/css" href="./styles/common.css">
+	<script defer type="module" src="./scripts/checkSignin.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+	<header class="header">
+		<img src="./img/menu.png" id="headerMenu" class="headerMenu">
+		<h1>Billy</h1>
+		<ul>
+			<li><a class="h active" id="homeNav" href="#">Home</a></li>
+			<li><a class="h" id="aboutNav" href="#choose">About</a></li>
+			<li><a class="h" id="featuresNav"href="#features">Features</a></li>
+			<li><a class="h" id="contactNav" href="#contact">Contact</a></li>
+		</ul>
+	</header>
+	<div class="contentStart">
+		<h1>Making everyday <span class="blue">business</span><br>hustle easier</h1>
+		<p>
+			Billy offers billing solutions that keep your sales sorted and at one place accessible anytime, anywhere.
+		</p>
+		<div class="startButtons">
+			<button id="getStartedBtn">Get Started</button>
+			<button id="knowMoreBtn" onclick="window.location.href='#choose'">Know More</button>
+		</div>
+	</div>
+	<div class="aboutUs" id="choose">
+		<h1>What is <span class="blue">BILLY</span>?</h1>
+		<p>Billy is a fully function web-app that provides solution for everyday problems in a business, doesn't matter if its small or big. <br>Billy provides an admin dashboard where you can check your daily sales and profits including many other things like recent customers, past month sales, contribution of each of your items in your daily sales and much more.<br>We also provide fully automatic sales adder and price distribution.<br>Your data is fully yours, we do not share any data with any companies and also provide you statistics for your data in excel sheets.<br>All this for <span class="blue big"><strong>FREE</strong></span></p>
+	</div>
+	<div class="features" id="features">
+		<section>
+			<h1>Why Choose <span class="blue">BILLY</span>?</h1>
+		</section>
+		<div class="blocks">
+			<div class="featureBlock">
+				<h1 class="blue">MODERN UI</h1>
+				<p>Billy offers a modern and smooth UI that makes your work even easier to do</p>
+			</div>
+			<div class="featureBlock">
+				<h1 class="blue">STATISTICS</h1>
+				<p>Billy offers statistics for your sales in a graph as well as an excel sheet</p>
+			</div>
+			<div class="featureBlock">
+				<h1 class="blue">VISUALIZATON</h1>
+				<p>Billy offers graphs and pie charts for daily, monthly sales and for price distribution</p>
+			</div>
+			<div class="featureBlock">
+				<h1 class="blue">COMPLETELY FREE</h1>
+				<p>Billy is completely free and on notch competitive with other solutions out there</p>
+			</div>
+		</div>
+	</div>
+	<div class="contactUs" id="contact">
+		<h1>Contact Us</h1>
+		<form onsubmit="formSubmit()">
+			<div class="inputBox">
+				<input id="nameInput" type="text" required="required" placeholder="Name">
+			</div>
+			<div class="inputBox">
+				<input id="emailInput" type="email" required="required" placeholder="Email">
+			</div>
+			<div class="inputBox">
+				<textarea id="queryInput" type="text" required="required" placeholder="Your Query"></textarea>
+			</div>
+			<button class="submitBtn" id="submitBtn">Submit</button>
+		</form>
+	</div>
+</body>
+<script type="text/javascript">
+	const submitBtn = document.getElementById("submitBtn")
+	submitBtn.addEventListener("click", (e) => {
+		e.preventDefault()
+		const name = document.getElementById("nameInput").value
+		const email = document.getElementById("emailInput").value
+		const msg = document.getElementById("queryInput").value
+
+		fetch(`https://billyapi.root.sx/contactUs`, {
+			method: "POST",
+			headers: {"Content-Type": "application/json"},
+			body: JSON.stringify({"name": name, "email": email, "msg": msg})
+		})
+		.then(data => data.json())
+		.then(data => {
+			if (data.success === false){
+				window.alert(data['Error'])
+				return
+			}
+			window.alert("Sent your query successfully")
+		})
+		.catch(error => {
+			window.alert("Please try again later")
+			console.log(error)
+			return
+		})
+	})
+</script>
+
+<script type="text/javascript">
+	const formSubmit = (e) => {
+		e.preventDefault()
+	}
+
+	const header = document.getElementsByClassName("header")[0]
+	const headerMenu = document.getElementById("headerMenu")
+	headerMenu.addEventListener("click", (e) => {
+		e.preventDefault()
+		if (headerMenu.classList.contains("active")){
+			header.classList.remove("active")
+			headerMenu.classList.remove("active")
+			headerMenu.src = "./img/menu.png"
+		} else {
+			header.classList.add("active")
+			headerMenu.classList.add("active")
+			headerMenu.src = "./img/closeHam.png"
+		}
+	})
+
+	const lis = Array.from(document.getElementsByClassName("h"))
+	lis.forEach((li) => {
+		li.addEventListener("click", (e) => {
+			if (document.getElementsByClassName("header")[0].classList.contains("active")) {
+				document.getElementsByClassName("header")[0].classList.remove("active")
+				document.getElementById("headerMenu").classList.remove("active")
+				headerMenu.src = "./img/menu.png"
+			}
+		})
+	})
+
+
+</script>
+</html>

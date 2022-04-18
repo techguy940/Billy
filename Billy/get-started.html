@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Billy: Get Started</title>
+	<link rel="stylesheet" type="text/css" href="./styles/common.css">
+	<link rel="stylesheet" type="text/css" href="./styles/getStarted.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script defer type="module" src="./scripts/getStarted.js"></script>
+</head>
+<body>
+	<header class="header">
+		<img src="./img/menu.png" id="headerMenu" class="headerMenu">
+		<h1>Billy</h1>
+		<ul>
+			<li><a class="h active" id="homeNav" href="#">Home</a></li>
+			<li><a class="h" id="aboutNav" href="#choose">About</a></li>
+			<li><a class="h" id="featuresNav"href="#features">Features</a></li>
+			<li><a class="h" id="contactNav" href="#contact">Contact</a></li>
+		</ul>
+	</header>
+	<div class="getStarted">
+		<h1 id="mainTitle">Get Started</h1>
+		<span id="errorPopup">Some error occured. Try again later. If this issue persists kindly do let us know</span>
+		<div class="personName">
+			<input type="text" required="required" placeholder="Your Name" id="personName">
+		</div>
+		<div class="businessName">
+			<input type="text" required="required" placeholder="Your Business Name" id="businessName">
+		</div>
+		<div class="items">
+			<p>Add Items: Items your business sells</p>
+			<button id="addItemBtn">+</button>
+		</div>
+		<div class="itemsHolder">
+			<div class="item">
+				<input type="text" placeholder="Item Name" required="required" id="itemName">
+				<input type="number" placeholder="Selling Price" required="required" min="0" id="sellingPrice">
+				<input type="number" placeholder="Profit" required="required" min="0" id="profitPrice">
+				<button class="deleteItem" onclick="removeItem()">&#10060;</button>
+			</div>
+		</div>
+		<div class="submitDiv">
+			<button type="submit" id="submitBtn">Submit</button>
+		</div>
+	</div>
+</body>
+<script type="text/javascript">
+	const removeItem = () => {
+		const items = Array.from(document.getElementsByClassName("item"))
+		items[0].remove()
+	}
+</script>
+<script type="text/javascript">
+	const header = document.getElementsByClassName("header")[0]
+	const headerMenu = document.getElementById("headerMenu")
+	headerMenu.addEventListener("click", (e) => {
+		e.preventDefault()
+		if (headerMenu.classList.contains("active")){
+			header.classList.remove("active")
+			headerMenu.classList.remove("active")
+			headerMenu.src = "./img/menu.png"
+		} else {
+			header.classList.add("active")
+			headerMenu.classList.add("active")
+			headerMenu.src = "./img/closeHam.png"
+		}
+	})
+
+	const lis = Array.from(document.getElementsByClassName("h"))
+	lis.forEach((li) => {
+		li.addEventListener("click", (e) => {
+			if (document.getElementsByClassName("header")[0].classList.contains("active")) {
+				document.getElementsByClassName("header")[0].classList.remove("active")
+				document.getElementById("headerMenu").classList.remove("active")
+				headerMenu.src = "./img/menu.png"
+			}
+		})
+	})
+
+
+</script>
+</html>
+

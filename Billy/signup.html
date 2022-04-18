@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Billy: Signup</title>
+	<link rel="stylesheet" type="text/css" href="./styles/signup.css">
+	<link rel="stylesheet" type="text/css" href="./styles/common.css">
+	<script defer type="module" src="./scripts/signup.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+	<header class="header">
+		<img src="./img/menu.png" id="headerMenu" class="headerMenu">
+
+		<h1>Billy</h1>
+		<ul>
+			<li><a class="h active" id="homeNav" href="./index.html">Home</a></li>
+			<li><a class="h" id="aboutNav" href="./index.html#choose">About</a></li>
+			<li><a class="h" id="featuresNav"href="./index.html#features">Features</a></li>
+			<li><a class="h" id="contactNav" href="./index.html#contact">Contact</a></li>
+		</ul>
+	</header>
+	<div class="bg active">
+		<h1>A few steps away from creating an account</h1>
+		<h2>Why choose Billy?</h2>
+		<ul>
+			<li>Modern UI</li>
+			<li>Statistics</li>
+			<li>Visualization</li>
+			<li>Free of Cost</li>
+			<li>Built with latest technologies</li>
+			<li>and much more...</li>
+		</ul>
+	</div>
+	<div class="mainBody">
+		<form class="signupForm active">
+			<h1 id="signupTitle">Sign Up</h1>
+			<button class="googleSignUp" type="button">Sign In with Google</button>
+			<span>OR</span>
+			<input type="email" required="required" placeholder="Email">
+			<input type="password" minlength="8" required="required" placeholder="Password">
+			<button type="submit">Sign Up</button>
+			<a id="loginGo">Already have an account? Log In</a>
+		</form>
+
+		<form class="loginForm">
+			<h1 id="loginTitle">Login</h1>
+			<button class="googleSignUp" type="button">Sign In with Google</button>
+			<span>OR</span>
+			<input type="email" required="required" placeholder="Email">
+			<input type="password" minlength="8" required="required" placeholder="Password">
+			<button type="submit">Log In</button>
+			<a id="signupGo">Don't have an account? Register Now</a>
+			<a id="forgetPass">Forgot Password?</a>
+		</form>
+
+		<form class="forgotPassForm">
+			<h1 id="forgotPassTitle">Reset Password</h1>
+			<input type="email" required="required" placeholder="Email">
+			<button type="submit">Reset Password</button>
+			<a id="loginGo2">Log In</a>
+		</form>
+	</div>
+	<div class="verifyPage" id="verification">
+		<img src="./img/verify.jpg" alt="Verification Email Sent Image">
+		<h1>Verification Email Sent</h1>
+		<p>Verify your email to continue. Check Spam folder if email is not received</p>
+		<a id="resendEmail">Resend Verification Email</a>
+	</div>
+</body>
+<script type="text/javascript">
+	const header = document.getElementsByClassName("header")[0]
+	const headerMenu = document.getElementById("headerMenu")
+	headerMenu.addEventListener("click", (e) => {
+		e.preventDefault()
+		if (headerMenu.classList.contains("active")){
+			header.classList.remove("active")
+			headerMenu.classList.remove("active")
+			headerMenu.src = "./img/menu.png"
+		} else {
+			header.classList.add("active")
+			headerMenu.classList.add("active")
+			headerMenu.src = "./img/closeHam.png"
+		}
+	})
+
+	const lis = Array.from(document.getElementsByClassName("h"))
+	lis.forEach((li) => {
+		li.addEventListener("click", (e) => {
+			if (document.getElementsByClassName("header")[0].classList.contains("active")) {
+				document.getElementsByClassName("header")[0].classList.remove("active")
+				document.getElementById("headerMenu").classList.remove("active")
+				headerMenu.src = "./img/menu.png"
+			}
+		})
+	})
+
+
+</script>
+</html>

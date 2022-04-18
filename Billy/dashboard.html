@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Billy: Dashboard</title>
+	<link rel="stylesheet" type="text/css" href="./styles/common.css">
+	<link rel="stylesheet" type="text/css" href="./styles/dashboard.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+	<script defer type="module" src="./scripts/dashboard.js"></script>
+</head>
+<body>
+	<div id="loader" class="loader active">
+	</div>
+	<img src="./img/menu.png" id="menuIcon">
+	<div class="quickNav" id="quickNav">
+		<div class="header">
+			<h1 id="brandNameText"></h1>
+		</div>
+
+		<div class="listItems">
+			<ul id="homeUl" class="active">
+				<img src="./img/home.png">
+				<li>Home</li>
+			</ul>
+			<ul id="salesUl">
+				<img src="./img/add.png">
+				<li>Add Sales</li>
+			</ul>
+			<ul id="statsUl">
+				<img src="./img/download.png">
+				<li>Get Statistics</li>
+			</ul>
+			<ul id="settingsUl">
+				<img src="./img/settings.png">
+				<li>Settings</li>
+			</ul>
+		</div>
+	</div>
+
+	<div class="homeDiv active" id="homeDiv">
+		<h1 class="homeTitle">Hello <span class="blue" id="personNameSpan"></span>,</h1>
+		<h1 class="homeTitle">Here's how <span class="blue" id="businessNameSpan"></span> did today</h1>
+		<div class="todayDiv">
+			<div class="todaySalesDiv" id="todaySalesDiv">
+				<h1>Today's Performance</h1>
+				<h2>Sales: </h2>
+				<h2>Profit: </h2>
+			</div>
+			<div class="monthSalesDiv" id="monthSalesDiv">
+				<h1>This Month's Performance</h1>
+				<h2>Sales: </h2>
+				<h2>Profit: </h2>
+			</div>
+			<div class="todayItemsDiv" id="todayItemsDiv">
+				<h1>Item Wise Performance</h1>
+				<h2>Most Sold Item: </h2>
+				<h2>Most Profitable Item: </h2>
+			</div>
+		</div>
+		<div class="todayGraphsDiv" id="todayGraphsDiv">
+		</div>
+	</div>
+
+
+
+
+
+	<div class="addSalesDiv" id="addSalesDiv">
+		<h1 id="addSalesTitle">Add Sales</h1>
+		<section>
+			<button id="addSalesBtn">+</button>
+		</section>
+		<div class="itemsHolder">
+			<div class="item">
+				<select type="text" placeholder="Item Name" required="required" id="itemName" class="itemName">
+				</select>
+				<input type="number" placeholder="Quantity" required="required" min="1" id="quantity">
+				<button class="deleteItem" onclick="removeItem()">&#10060;</button>
+			</div>
+		</div>
+		<div class="submitDiv">
+			<button id="itemsSubmitBtn">Submit</button>
+		</div>
+	</div>
+
+
+
+	<div class="settingsDiv" id="settingsDiv">
+		<div class="topLayer">
+			<h1 id="settingsTitle">Edit your profile</h1>
+			<button id="signOutBtn">Sign Out</button>
+		</div>
+		<input type="text" id="personName" required="required" placeholder="Your Name">
+		<input type="text" id="businessName" required="required" placeholder="Business Name">
+<!-- 		<div class="changePassword">
+			<button id="changePasswordBtn">Change Password</button id="changePasswordBtn">
+			<div class="passInputs">
+				<input type="password" 
+			</div>
+		</div> -->
+		<div class="addItemsSettingsDiv">
+			<h1>Add / Remove Items</h1>
+			<button id="addItemsBtn">+</button>
+		</div>
+		<div class="itemsHolderSettings">
+			<div class="itemSetting">
+				<input type="text" placeholder="Item Name" required="required" id="itemNameSetting">
+				<input type="number" placeholder="Selling Price" required="required" min="0" id="sellingPriceSetting">
+				<input type="number" placeholder="Profit" required="required" min="0" id="profitSetting">
+				<button class="deleteItemSetting" onclick="removeItemSetting()">&#10060;</button>
+			</div>
+		</div>
+		<div class="updateSettingsDiv">
+			<button id="updateSettingsBtn">Update</button>
+		</div>
+	</div>
+
+
+	<div class="statsDiv" id="statsDiv">
+		<h1 id="statsTitle">Business Statistics</h1>
+		<div class="dataBtns">
+			<button id="monthlyDataBtn">Get Monthly Data</button>
+			<button id="dailyDataBtn">Get Daily Data</button>
+			<button id="priceDistributionBtn">Get Price Distribution</button>
+			<button id="graphsBtn">Get Graphs</button>
+		</div>
+		<div class="dataTable" id="dataTable">
+			<a id="downloadCSV">Save as CSV</a>
+		</div>
+		<div class="dataGraphs" id="dataGraphs">
+		</div>
+	</div>
+
+</body>
+<script type="text/javascript">
+	const menuIcon = document.getElementById("menuIcon")
+	const quickNav = document.getElementsByClassName("quickNav")[0]
+	menuIcon.addEventListener("click", (e) => {
+		e.preventDefault()
+		if (menuIcon.classList.contains("close")) {
+			menuIcon.classList.remove("close")
+			menuIcon.src = "./img/menu.png"
+			quickNav.classList.remove("active")
+		} else {
+			menuIcon.classList.add("close")
+			menuIcon.src = "./img/closeHam.png"
+			quickNav.classList.add("active")
+		}
+	})
+	
+	const removeItem = () => {
+		const items = Array.from(document.getElementsByClassName("item"))
+		items[0].remove()
+	}
+
+	const removeItemSetting = () => {
+		const items = Array.from(document.getElementsByClassName("itemSetting"))
+		items[0].remove()
+	}
+</script>
+</html>
