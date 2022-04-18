@@ -1,0 +1,417 @@
+.contentStart
+{
+	max-width: auto;
+	height: 40vw;
+	display: flex;
+	padding-left: 8rem;
+	padding-top: 12rem;
+	margin-bottom: 7rem;
+	flex-direction: column;
+	background: url("../img/homebg.jpg");
+	background-repeat: no-repeat;
+	background-position: right;
+	background-size: 700px 500px;
+}
+
+.contentStart h1
+{
+	font-size: 2.5em;
+}
+
+.blue
+{
+	color: #036bfc;
+}
+
+.contentStart p
+{
+	margin-top: 1.5rem;
+	font-size: 18px;
+	max-width: 500px;
+	word-break: break-word;
+}
+
+.contentStart .startButtons
+{
+	margin-top: 2rem;
+	display: flex;
+	gap: 15px;
+}
+
+.contentStart .startButtons #getStartedBtn
+{
+	outline: none;
+	border: none;
+	padding: .5rem 1rem .5rem 1rem;
+	width: 200px;
+	height: 40px;
+	background: #036bfc;
+	color: white;
+	border-radius: 20px;
+	cursor: pointer;
+	font-size: 15px;
+	transition: .5s;
+}
+
+.contentStart .startButtons #getStartedBtn:hover
+{
+	background: #0455c7;
+}
+
+.contentStart .startButtons #knowMoreBtn
+{
+	outline: none;
+	border: none;
+	padding: .5rem 1rem .5rem 1rem;
+	width: 200px;
+	height: 40px;
+	background: #e0e0e0;
+	color: black;
+	border-radius: 20px;
+	cursor: pointer;
+	font-size: 15px;
+	transition: .5s;
+}
+
+.contentStart .startButtons #knowMoreBtn:hover
+{
+	background: #c2c2c2;
+}
+
+@media (max-width: 1280px)
+{
+	.contentStart
+	{
+		background-size: 600px 400px;
+		background-position: 52vw 7vw;
+	}
+}
+
+@media (max-width: 1110px)
+{
+	.contentStart
+	{
+		background: none;
+		align-items: center;
+		text-align: center;
+		padding-top: 9rem;
+		padding-left: 0;
+		height: auto;
+	}
+}
+
+@media (max-width: 600px)
+{
+	.contentStart
+	{
+		padding-top: 25%;
+		padding-left: 2rem;
+		padding-right: 2rem;
+	}
+
+	.contentStart .startButtons
+	{
+		flex-direction: column;
+	}
+
+	.contentStart h1
+	{
+		font-size: 2em;
+	}
+
+	header ul
+	{
+		display: none !important;
+	}
+
+	header h1
+	{
+		display: block !important;
+		width: 100% !important;
+		text-align: center !important;
+		font-size: 2em !important;
+		color: black !important;
+	}
+}
+
+.aboutUs
+{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	flex-direction: column;
+	gap: 1rem;
+	padding: 2rem 12rem 2rem 12rem;
+	background: black;
+	color: white;
+	white-space: pre-line;
+}
+
+.aboutUs h1
+{
+	font-size: 2.5em;
+}
+
+.aboutUs p
+{
+	font-size: 18px;
+	line-height: 30px;
+}
+
+.big
+{
+	font-size: 30px;
+	line-height: 30px;
+}
+
+@media (max-width: 600px)
+{
+	.aboutUs
+	{
+		padding-left: 1rem;
+		padding-right: 1rem;
+		padding-top: 3rem;
+		padding-bottom: 3rem;
+	}
+	.aboutUs h1
+	{
+		font-size: 2em;
+	}
+	.aboutUs p
+	{
+		font-size: 16px;
+	}
+}
+
+.features
+{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding: 2rem 10rem 2rem 10rem;
+	margin-bottom: 1.5rem;
+}
+
+.features section h1
+{
+	margin-top: 1rem;
+	margin-bottom: 2rem;
+	font-size: 2.5em;
+	text-align: center;
+}
+
+.features .blocks
+{
+	display: grid;
+	text-align: center;
+	margin: 0 auto;
+}
+
+.features .blocks .featureBlock
+{
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+	justify-content: center;
+	align-items: center;
+	max-width: 300px;
+	height: auto;
+	border-radius: 5px;
+	cursor: pointer;
+	transition: .5s;
+	padding: 1rem;
+}
+
+.features .blocks .featureBlock:hover
+{
+	background: #d1d1d1;
+}
+
+.features .blocks .featureBlock h1
+{
+	font-size: 1.5em;
+}
+
+@media (min-width: 600px) {
+  .features .blocks { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (min-width: 900px) {
+  .features .blocks { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (min-width: 901px) {
+  .features .blocks { grid-template-columns: repeat(4, 1fr); }
+}
+
+@media (max-width: 900px)
+{
+	.features section h1 { font-size: 1.75em; }
+}
+
+@media (max-width: 600px)
+{
+	.features
+	{
+		padding-right: 1rem;
+		padding-left: 1rem;
+	}
+}
+
+.contactUs
+{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	background: black;
+	padding: 2rem 12rem 2rem 12rem;
+	color: white;
+	background-image: url("../img/contactbg.png");
+	background-repeat: no-repeat;
+	background-size: 500px 500px;
+	background-position: 100% 5px;
+}
+
+.contactUs h1
+{
+	font-size: 2.5em;
+	margin-bottom: 1.5rem;
+}
+
+.contactUs .inputBox
+{
+	display: flex;
+	position: relative;
+	width: 400px;
+	height: 43px;
+	margin-bottom: 1rem;
+}
+
+.contactUs .inputBox input
+{
+	width: 400px;
+	height: 35px;
+	outline: none;
+	padding: .5rem 1rem .5rem 1rem;
+	border: none;
+	border-radius: 5px;
+	font-size: 15px;
+}
+
+.contactUs .inputBox textarea
+{
+	position: relative;
+	resize: none;
+	width: 400px;
+	height: 100px;
+	outline: none;
+	padding: .5rem 1rem .5rem 1rem;
+	border: none;
+	border-radius: 5px;
+	font-size: 15px;
+}
+
+.contactUs .submitBtn
+{
+	margin-top: 4rem;
+	width: 400px;
+	height: 40px;
+	outline: none;
+	background: #036bfc;
+	border: none;
+	border-radius: 5px;
+	color: white;
+	padding: .5rem 1rem .5rem 1rem;
+	font-size: 15px;
+	transition: .5s;
+	cursor: pointer;
+}
+
+.contactUs .submitBtn:hover
+{
+	background: #0455c7;
+}
+
+@media (max-width: 1090px)
+{
+	.contactUs
+	{
+		background-image: none;
+		align-items: center;
+		justify-content: center;
+	}
+}
+
+@media (max-width: 650px)
+{
+	.contactUs h1
+	{
+		text-align: center;
+		font-size: 2em;
+		white-space: nowrap;
+	}
+}
+
+@media (max-width: 450px)
+{
+	.contactUs
+	{
+		padding-left: .25rem;
+		padding-right: .25rem;
+	}
+
+	.contactUs .inputBox
+	{
+		width: auto;
+		height: auto;
+	}
+
+	.contactUs .inputBox input
+	{
+		width: 300px;
+		height: auto;
+	}
+	.contactUs .inputBox textarea
+	{
+		width: 300px;
+		height: auto;
+	}
+	.contactUs .submitBtn
+	{
+		width: 300px;
+		margin-top: 2rem;
+	}
+}
+
+@media (max-width: 330px)
+{
+	.contactUs
+	{
+		padding-left: .20rem;
+		padding-right: .20rem;
+	}
+
+	.contactUs .inputBox
+	{
+		width: auto;
+		height: auto;
+	}
+
+	.contactUs .inputBox input
+	{
+		width: 250px;
+		height: 30px;
+	}
+	.contactUs .inputBox textarea
+	{
+		width: 250px;
+		height: auto;
+	}
+	.contactUs .submitBtn
+	{
+		width: 250px;
+		margin-top: 1.5rem;
+	}
+}

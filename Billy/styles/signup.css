@@ -1,0 +1,335 @@
+.mainBody
+{
+	display: flex;
+	flex-direction: column;
+	padding-left: 14%;
+	padding-top: 5%;
+}
+
+.signupForm.active #signupTitle,
+.loginForm.active #loginTitle
+{
+	font-size: 2.5em;
+	text-transform: uppercase;
+	color: #036bfc;
+}
+
+.forgotPassForm.active #forgotPassTitle
+{
+	font-size: 2em;
+	text-transform: uppercase;
+	color: #036bfc;
+	margin-bottom: 1.5rem;
+}
+
+.signupForm, .loginForm, .forgotPassForm
+{
+	display: none;
+}
+
+.signupForm.active,
+.loginForm.active,
+.forgotPassForm.active
+{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	max-width: 400px;
+	height: 500px;
+	gap: 1.5rem;
+	border: 2px solid black;
+	border-radius: 10px;
+	padding: 2rem;
+	text-align: center;
+}
+
+.signupForm.active input,
+.loginForm.active input,
+.forgotPassForm.active input
+{
+	padding-left: 1rem;
+	padding-right: 1rem;
+	padding-top: .5rem;
+	padding-bottom: .5rem;
+	font-size: 16px;
+	border: 1px solid black;
+	outline: none;
+	border-radius: 5px;
+}
+
+.signupForm.active button,
+.loginForm.active button,
+.forgotPassForm.active button
+{
+	min-height: 40px;
+	color: white;
+	background: #036bfc;
+	font-size: 16px;
+	border-radius: 20px;
+	outline: none;
+	border: none;
+	cursor: pointer;
+	transition: .5s;
+}
+
+.signupForm.active .googleSignUp,
+.loginForm.active .googleSignUp
+{
+	background: #DBA439;
+	border-radius: 5px;
+	min-height: 50px;
+	font-size: 18px;
+}
+
+.signupForm.active button:hover,
+.loginForm.active button:hover,
+.forgotPassForm.active button:hover
+{
+	background: #0455c7;
+}
+
+.signupForm.active a,
+.loginForm.active a,
+.forgotPassForm.active a
+{
+	color: #036bfc;
+	cursor: pointer;
+}
+
+.bg
+{
+	display: none;
+}
+
+.bg.active
+{
+	color: #639cf7;
+	background-color: #036bfc;
+	width: 45%;
+	min-height: 100vh;
+	position: absolute;
+	right: 0;
+	top: 0;
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+	padding: 5rem;
+	padding-top: 8.5rem;
+}
+
+.bg.active h1
+{
+	font-size: 2em;
+	color: white;
+	pointer-events: none;
+}
+
+.bg.active h2
+{
+	margin-top: 2rem;
+	color: white;
+	font-size: 1.75em;
+	pointer-events: none;
+}
+
+.bg.active ul
+{
+	display: flex;
+	margin-left: 3rem;
+	flex-direction: column;
+}
+
+.bg.active ul li
+{
+	color: white;
+	font-size: 18px;
+	line-height: 30px;
+}
+
+
+@media (max-width: 1070px)
+{
+	.mainBody
+	{
+		padding-left: 7%;
+	}
+}
+
+@media (max-width: 950px)
+{
+	header ul
+	{
+		display: none !important;
+	}
+
+	header h1
+	{
+		display: block !important;
+		width: 100% !important;
+		text-align: center !important;
+		margin-left: 1rem !important;
+		font-size: 2em !important;
+		color: black !important;
+	}
+}
+
+@media (max-width: 860px)
+{
+	.loginForm.active,
+	.signupForm.active,
+	.forgotPassForm.active
+	{
+		width: 350px;
+		height: 550px;
+		align-items: center;
+	}
+
+	.loginForm.active input,
+	.signupForm.active input,
+	.forgotPassForm.active input,
+	.loginForm.active button,
+	.signupForm.active button,
+	.forgotPassForm.active button
+	{
+		width: 250px;
+	}
+}
+
+@media (max-width: 760px)
+{
+	.bg
+	{
+		display: none !important;
+	}
+
+	header h1
+	{
+		margin-left: 0 !important;
+	}
+
+	.mainBody
+	{
+		align-items: center;
+		justify-content: center;
+		padding-top: 4rem;
+		padding-right: .5rem;
+		padding-left: .5rem;
+	}
+	.loginForm.active,
+	.signupForm.active,
+	.forgotPassForm.active
+	{
+		padding: .25rem;
+	}
+}
+
+.verifyPage
+{
+	display: none;
+}
+
+.verifyPage.active
+{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+	padding-left: 1rem;
+	padding-right: 1rem;
+}
+
+.verifyPage.active img
+{
+	width: 325px;
+	height: 300px;
+}
+
+.verifyPage.active p
+{
+	margin-top: .5rem;
+}
+
+.verifyPage.active a
+{
+	color: #036bfc;
+	margin-top: .15rem;
+	text-decoration: none;
+}
+
+#headerMenu
+{
+	display: none;
+	max-width: 20px;
+	max-height: 20px;
+	margin-right: 1.5rem;
+	cursor: pointer;
+}
+@media (max-width: 600px)
+{
+	header.active
+	{
+		background: white;
+		width: 100%;
+		height: 100vh;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		padding: 0;
+		margin: 0 auto;
+		text-align: center !important;
+		position: fixed;
+	}
+
+	header
+	{
+		padding-top: .5rem;
+		padding-bottom: .5rem;
+	}
+	#headerMenu
+	{
+		display: inline-block;
+		position: absolute;
+		left: 2rem;
+		margin-top: 1rem;
+		z-index: 10000000;
+	}
+	header.active #headerMenu
+	{
+		margin-top: 3rem;
+	}
+
+	header.active h1
+	{
+		transform: translate(-1%, 0);
+	}
+
+	header h1
+	{
+		padding-top: 2rem;
+	}
+
+
+
+	header.active ul
+	{
+		display: flex !important;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		gap: .5rem;
+		transform: translate(-15%, 100%);
+	}
+
+	header.active ul li
+	{
+		text-align: center !important;
+
+	}
+
+	header.active ul li a
+	{
+		text-align: center !important;
+
+		font-size: 24px;
+	}
+}
